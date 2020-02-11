@@ -220,7 +220,6 @@ func _request(method string, params interface{}) (ResponseShell, Error) {
 	// create the JSON body for our request - ID is set to any number, doesn't matter which as API doesn't support batch notifs.
 	body, err := json.Marshal(RequestShell{Version: "2.0", Params: params, Method: method, Id: 1})
 
-	fmt.Println(string(body))
 	if err != nil {
 		return clientError(err.Error())
 	}
